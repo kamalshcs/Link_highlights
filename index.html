@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="flex-container">
+        <div style="flex-grow: 2"><a href="#">Home </a></div>
+        <div style="flex-grow: 2"><a href="https://kamalshcs.medium.com/">Articles </a></div>
+        <div style="flex-grow: 4"></div>
+        <div style="flex-grow: 2;"><a href="https://kamalshcs.medium.com/">Profile </a></div>
+    </div>
+
+
+    <div class="article">
+        <h2>Expectations and Reality</h2>   
+        <p>
+            We are the species having the highest <a href="">emotional quotient</a> on this 
+            planet. Our degree of self- awareness, <a href="">emotional-intelligence</a> and 
+            empathy, individualizes us from our fellow folks.</p>
+        <p>
+            We seek our own comfort and pleasures without catering towards the 
+            needs of others. Not realizing the reality of Newton’s third law 
+            ‘For every action there’s an equal and opposite reaction’, in other 
+            words ‘As you sow so shall you reap!’</p>
+        <p>    
+            People find serenity in their own profit but cannot find sufficiency until 
+            they learn to control their <a href="">exaggerated</a> expectations and desires. Henceforth, 
+            people try to grab more than what they could be genuinely satisfied in. 
+            This crazy rat race of garnering admiration and popularity from the social peers 
+            drags the person away from the reality of sufficiency in unconditional and 
+            faithful bonds.
+        </p>
+    </div>
+
+    <script>
+
+        const triggers= document.querySelectorAll('a');
+        const highlight= document.createElement('span');
+        highlight.classList.add('highlight');
+        document.body.append(highlight);
+
+        function highlightLink()
+        {
+            const linkCoords= this.getBoundingClientRect();
+            console.log(linkCoords);
+
+            const coords={
+            width: linkCoords.width,
+            height: linkCoords.height,
+            top: linkCoords.top + window.scrollY,
+            left: linkCoords.left + window.scrollX };
+
+
+            highlight.style.width= `${coords.width}px`;
+            highlight.style.height= `${coords.height}px`;
+            highlight.style.transform= `translate(${coords.left}px,${coords.top}px)`;
+        }
+
+        
+
+        triggers.forEach(a => a.addEventListener('mousemove', highlightLink));
+
+
+    </script>
+
+    
+</body>
+</html>
